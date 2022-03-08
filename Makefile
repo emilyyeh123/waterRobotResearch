@@ -2,7 +2,7 @@
 CC=g++
 
 # Compiler options
-CFLAGS=-c -std=c++11 -02 -fpic
+CFLAGS=-c -std=c++11 -fpic
 
 # Everywhere else
 INCLUDES=-I/usr/local/include/djiosdk/
@@ -15,15 +15,21 @@ DEBUG=-g
 HEADERS=dji_osdk/dji_vehicle.hpp dji_osdk/dji_linux_environment.hpp dji_osdk/dji_linux_helpers.hpp dji_osdk/dji_status.hpp batteryLevel.hpp
 
 # .o object files
-OBJECTS=batteryLevel.o dji_osdk/dji_vehicle.o dji_osdk/dji_linux_environment.o dji_osdk/dji_linux_helpers.o dji_osdk/dji_status.o
+OBJECTS=batteryLevel.o dji_osdk/dji_vehicle.o dji_osdk/dji_linux_environment.o dji_osdk/dji_linux_helpers.o dji_osdk/dji_status.o 
+
+# build targets
+TARGETS = batteryLevel
 
 # --------------------------------------------------------
 
 all: $(TARGETS)
 
 $(TARGETS): $(OBJECTS)
-  $(CC) -shared -Wl,-soname,$@ $(OBJECTS) -o $@ $<
+	$(CC) -shared -Wl,-soname,$@ $(OBJECTS) -o $@ $(LINKS)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) -o $@ $<
 
 clean:
-  rm $(TARGETS) $(OBJECTS)
+	rm $(TARGETS) $(OBJECTS)
 

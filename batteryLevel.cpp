@@ -4,14 +4,16 @@
 #include <dji_status.hpp>
 #include <dji_vehicle.hpp>
 // Helpers
-#include "dji_linux_helpers.hpp"
+#include "dji_osdk/dji_linux_helpers.hpp"
 
 using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
+using namespace std;
 using std::string;
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 int batteryLevel(){
   DJI::OSDK::Telemetry::Battery data;
