@@ -1,14 +1,10 @@
-// this code was made just to test the battery reading
+// test battery reading
 
 #include "batteryLevel.hpp"
 
-#include <math.h>
-#include <time.h>
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <ratio>
-#include <chrono>
 
 // DJI OSDK includes
 #include <dji_status.hpp>
@@ -46,17 +42,3 @@ int batteryLevel()
   return static_cast<int>(data.percentage);
 }
 
-/*
-int batteryLevel(CppVehicle& cv)
-{
-   DJI::OSDK::Telemetry::Battery data;
-   int functionTimeout = 1;
-
-   cv.my_vehicle->obtainCtrlAuthority(functionTimeout);
-
-   data = cv.my_vehicle->broadcast->getBatteryInfo();
-   std::cout << "battery percentage: " << static_cast<int>(data.percentage) << "% \n";
-   cv.my_vehicle->releaseCtrlAuthority(functionTimeout);
-   return static_cast<int>(data.percentage);
-}
-*/
