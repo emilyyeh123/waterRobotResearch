@@ -1,0 +1,4 @@
+app_id : 1051115
+app_key : 40087c6d709a4595eb17f416918018963127eeeca64758c88a3984fa88f1fc40
+device : /dev/serial0
+baudrate : 230400

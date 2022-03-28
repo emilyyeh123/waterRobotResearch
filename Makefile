@@ -2,7 +2,7 @@
 CC=g++
 
 # Compiler options
-CFLAGS = -std=c++11 -g -O0
+CFLAGS = -c -Wall -std=c++11 -g -O0
 
 INCLUDES=-I/usr/local/include/djiosdk/
 LINKS=-ldjiosdk-core -lpthread
@@ -10,20 +10,21 @@ LINKS=-ldjiosdk-core -lpthread
 # Uncomment to add debugging symbols
 #DEBUG=-g
 
-OBJECTS = main.o #dji_linux_environment.o dji_linux_helpers.o batteryLevel.o
+HEADERS = batteryLevel.hpp
 
-TARGETS = main
+OBJECTS = main.o dji_linux_environment.o dji_linux_helpers.o batteryLevel.o
+
+EXECUTABLE = mainProgram
 
 # --------------------------------------------
 
-all: $(TARGETS)
+all: $(EXECUTABLE)
 
-$(TARGETS): $(OBJECTS)
-	$(CC) -shared -Wl,-soname,$@ $(OBJECTS) -o $@ $(LINKS)
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXECUTABLE) $(LINKS)
 
-#%.o: %.cpp $(HEADERS)
-%.o: %.cpp
-	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) -c $@ $<
+%.o: %.cpp $(HEADERS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $<
 
 clean:
-	rm $(TARGETS) $(OBJECTS)
+	rm -rf *.o $(EXECUTABLE)
