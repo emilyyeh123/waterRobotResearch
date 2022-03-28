@@ -17,8 +17,6 @@ using namespace DJI::OSDK::Telemetry;
 using std::string;
 
 int main(){
-  cout << "hi my name is emily";
-
   DJI::OSDK::Telemetry::Battery data;
 
   batteryLevel();

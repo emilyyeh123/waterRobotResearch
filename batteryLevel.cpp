@@ -18,7 +18,7 @@ using std::string;
 
 int batteryLevel()
 {
-  std::cout << "Print Statement";
+  std::cout << "Getting Battery Level\n";
   DJI::OSDK::Telemetry::Battery data;
 
   // Initialize variables
