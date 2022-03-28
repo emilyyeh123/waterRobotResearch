@@ -2,7 +2,7 @@
 CC=g++
 
 # Compiler options
-CFLAGS = -c -Wall -std=c++11 -g -O0
+CFLAGS = -c -std=c++11 -g -O0
 
 INCLUDES=-I/usr/local/include/djiosdk/
 LINKS=-ldjiosdk-core -lpthread
