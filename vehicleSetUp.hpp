@@ -1,10 +1,10 @@
-//#include "vehicleSetUp.hpp"
-//#include "batteryLevel.hpp"
-#include "position.hpp"
+#ifndef VEHICLESETUP_HPP
+#define VEHICLESETUP_HPP
+
+#include "batteryLevel.hpp"
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 // DJI OSDK includes
 #include <dji_status.hpp>
@@ -13,11 +13,6 @@ using namespace std;
 using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
 
-int main(){
-  //Vehicle* vehicle = initVehicle();
+Vehicle* initVehicle();
 
-  //batteryLevel(vehicle);
-  //batteryLevel();
-
-  lat();
-}
+#endif
