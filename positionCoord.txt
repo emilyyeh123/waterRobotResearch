@@ -1,0 +1,3 @@
+
+Latitude is: 0.662869
+Longitude is: 0.662869

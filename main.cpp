@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 // DJI OSDK includes
@@ -19,5 +20,7 @@ int main(){
   //batteryLevel(vehicle);
   //batteryLevel();
 
-  lat();
+  //lat();
+  //lon();
+  outputPosition();
 }
