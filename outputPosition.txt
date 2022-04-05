@@ -1,0 +1,2 @@
+Latitude is: 0
+Longitude is: -2.11728

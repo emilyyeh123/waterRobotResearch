@@ -60,6 +60,8 @@ double lat(){
   cout << "\nRETRIEVING LATITUDE\n";
   DJI::OSDK::Telemetry::GlobalPosition currentBroadcastGP;
   currentBroadcastGP = vehicle -> broadcast -> getGlobalPosition();
+  //DJI::OSDK::Telemetry::PositionData currentPos;
+  //currentPos = vehicle -> broadcast -> getRelativePosition();
 
   cout << "Latitude is: " << currentBroadcastGP.latitude << endl;
   return currentBroadcastGP.latitude;
@@ -88,15 +90,15 @@ double lon(){
   currentBroadcastGP = vehicle -> broadcast -> getGlobalPosition();
 
   cout << "Longitude is: " << currentBroadcastGP.longitude << endl;
-  return currentBroadcastGP.latitude;
+  return currentBroadcastGP.longitude;
 }
 
 void outputPosition(){
   ofstream myfile;
-  myfile.open("positionCoord.txt");
+  myfile.open("outputPosition.txt");
   double latitude = lat();
   double longitude = lon();
-  myfile << "Latitude is: " << lat() << endl << "Longitude is: " << lon() << endl;
+  myfile << "Latitude is: " << latitude << endl << "Longitude is: " << longitude << endl;
   myfile.close();
 }
 
