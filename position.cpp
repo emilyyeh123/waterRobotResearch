@@ -93,6 +93,32 @@ double lon(){
   return currentBroadcastGP.longitude;
 }
 
+int getHealth(){
+  cout << "SETTING UP VEHICLE\n";
+
+  // Initialize variables
+  int functionTimeout = 1;
+  char* linux_argv[] = {"prog_name"};
+
+  // Setup OSDK.
+  LinuxSetup linuxEnvironment(1, linux_argv);
+  Vehicle*   vehicle = linuxEnvironment.getVehicle();
+  if (vehicle == NULL)
+  {
+    cout << "Vehicle not initialized, exiting.\n";
+    return -1;
+  }
+  // Obtain Control Authority
+  vehicle->obtainCtrlAuthority(functionTimeout);
+
+  cout << "\nRETRIEVING SIGNAL STRENGTH\n";
+  DJI::OSDK::Telemetry::GlobalPosition healthSignal;
+  //healthSignal = vehicle -> broadcast -> getGlobalPosition();
+
+  cout << "Signal Strength (scale from 0-5, >3 is strong): " << int(healthSignal.health) << endl;
+  return int(healthSignal.health);
+}
+
 void outputPosition(){
   ofstream myfile;
   myfile.open("outputPosition.txt");

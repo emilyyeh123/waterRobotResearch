@@ -22,5 +22,6 @@ int main(){
 
   //lat();
   //lon();
-  outputPosition();
+  //outputPosition();
+  getHealth();
 }
