@@ -14,49 +14,7 @@ using namespace std;
 using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
 
-// function to set current position
-/*void setPosition(){
-  cout << "SETTING UP VEHICLE\n";
-
-  // Initialize variables
-  int functionTimeout = 1;
-  char* linux_argv[] = {"prog_name"};
-
-  // Setup OSDK.
-  LinuxSetup linuxEnvironment(1, linux_argv);
-  Vehicle*   vehicle = linuxEnvironment.getVehicle();
-  if (vehicle == NULL)
-  {
-    cout << "Vehicle not initialized, exiting.\n";
-    return -1;
-  }
-  // Obtain Control Authority
-  vehicle->obtainCtrlAuthority(functionTimeout);
-
-  // bool moveByPositionOffset
-  //   (vehicle, xOffsetDesired, yOffsetDesired, zOffsetDesired
-  //    yawDesired, posThresholdInM, yawThresholdInDeg)
-  //moveByPositionOffset(vehicle, 0, 6, 6, 30);
-}*/
-
-double lat(){
-  cout << "SETTING UP VEHICLE\n";
-
-  // Initialize variables
-  int functionTimeout = 1;
-  char* linux_argv[] = {"prog_name"};
-
-  // Setup OSDK.
-  LinuxSetup linuxEnvironment(1, linux_argv);
-  Vehicle*   vehicle = linuxEnvironment.getVehicle();
-  if (vehicle == NULL)
-  {
-    cout << "Vehicle not initialized, exiting.\n";
-    return -1;
-  }
-  // Obtain Control Authority
-  vehicle->obtainCtrlAuthority(functionTimeout);
-
+double lat(Vehicle *vehicle){
   cout << "\nRETRIEVING LATITUDE\n";
   DJI::OSDK::Telemetry::GlobalPosition currentBroadcastGP;
   currentBroadcastGP = vehicle -> broadcast -> getGlobalPosition();
@@ -67,24 +25,7 @@ double lat(){
   return currentBroadcastGP.latitude;
 }
 
-double lon(){
-  cout << "SETTING UP VEHICLE\n";
-
-  // Initialize variables
-  int functionTimeout = 1;
-  char* linux_argv[] = {"prog_name"};
-
-  // Setup OSDK.
-  LinuxSetup linuxEnvironment(1, linux_argv);
-  Vehicle*   vehicle = linuxEnvironment.getVehicle();
-  if (vehicle == NULL)
-  {
-    cout << "Vehicle not initialized, exiting.\n";
-    return -1;
-  }
-  // Obtain Control Authority
-  vehicle->obtainCtrlAuthority(functionTimeout);
-
+double lon(Vehicle *vehicle){
   cout << "\nRETRIEVING LONGITUDE\n";
   DJI::OSDK::Telemetry::GlobalPosition currentBroadcastGP;
   currentBroadcastGP = vehicle -> broadcast -> getGlobalPosition();
@@ -93,24 +34,7 @@ double lon(){
   return currentBroadcastGP.longitude;
 }
 
-int getHealth(){
-  cout << "SETTING UP VEHICLE\n";
-
-  // Initialize variables
-  int functionTimeout = 1;
-  char* linux_argv[] = {"prog_name"};
-
-  // Setup OSDK.
-  LinuxSetup linuxEnvironment(1, linux_argv);
-  Vehicle*   vehicle = linuxEnvironment.getVehicle();
-  if (vehicle == NULL)
-  {
-    cout << "Vehicle not initialized, exiting.\n";
-    return -1;
-  }
-  // Obtain Control Authority
-  vehicle->obtainCtrlAuthority(functionTimeout);
-
+int getHealth(Vehicle *vehicle){
   cout << "\nRETRIEVING SIGNAL STRENGTH\n";
   DJI::OSDK::Telemetry::GlobalPosition healthSignal;
   //healthSignal = vehicle -> broadcast -> getGlobalPosition();
@@ -119,11 +43,11 @@ int getHealth(){
   return int(healthSignal.health);
 }
 
-void outputPosition(){
+void outputPosition(Vehicle *vehicle){
   ofstream myfile;
   myfile.open("outputPosition.txt");
-  double latitude = lat();
-  double longitude = lon();
+  double latitude = lat(vehicle);
+  double longitude = lon(vehicle);
   myfile << "Latitude is: " << latitude << endl << "Longitude is: " << longitude << endl;
   myfile.close();
 }

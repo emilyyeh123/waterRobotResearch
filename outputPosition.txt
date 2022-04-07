@@ -1,2 +1,2 @@
-Latitude is: 0
+Latitude is: 0.662869
 Longitude is: -2.11728

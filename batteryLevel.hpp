@@ -1,7 +1,8 @@
 #ifndef BATTERYLEVEL_HPP
 #define BATTERYLEVEL_HPP
 
-//int batteryLevel(Vehicle* vehicle);
-int batteryLevel();
+#include<dji_vehicle.hpp>
+
+int batteryLevel(Vehicle *vehicle);
 
 #endif

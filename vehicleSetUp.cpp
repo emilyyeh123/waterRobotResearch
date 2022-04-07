@@ -11,7 +11,7 @@ using namespace std;
 using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
 
-Vehicle* initVehicle(){
+Vehicle *initVehicle(){
   cout << "INITIALIZING VEHICLE\n";
 
   // initialize variables

@@ -13,7 +13,8 @@ using namespace std;
 using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
 
-//int batteryLevel(Vehicle* vehicle){
+int batteryLevel(Vehicle *vehicle){
+/*
 int batteryLevel(){
   cout << "INITIALIZING VEHICLE\n";
 
@@ -30,9 +31,10 @@ int batteryLevel(){
   }
   // Obtain Control Authority
   vehicle -> obtainCtrlAuthority(functionTimeout);
-
+*/
 
   DJI::OSDK::Telemetry::Battery data;
+  //cout << "vehicle address " << &vehicle << endl;
 
   //giving Mission function time to initialize
   data = vehicle->broadcast->getBatteryInfo();

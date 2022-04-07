@@ -1,5 +1,5 @@
-//#include "vehicleSetUp.hpp"
-//#include "batteryLevel.hpp"
+#include "vehicleSetUp.hpp"
+#include "batteryLevel.hpp"
 #include "position.hpp"
 
 #include <iostream>
@@ -15,13 +15,27 @@ using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
 
 int main(){
-  //Vehicle* vehicle = initVehicle();
+  cout << "INITIALIZING VEHICLE\n";
 
-  //batteryLevel(vehicle);
+  // initialize variables
+  int functionTimeout = 1;
+  char* linux_argv[] = {"prog_name"};
+
+  // Setup OSDK
+  LinuxSetup linuxEnvironment(1, linux_argv);
+  Vehicle* vehicle = linuxEnvironment.getVehicle();
+  if (vehicle == NULL){
+    cout << "VEHICLE NOT INITIALIZED, EXITING.\n";
+  }
+  // Obtain Control Authority
+  vehicle -> obtainCtrlAuthority(functionTimeout);
+
+  batteryLevel(vehicle);
+
   //batteryLevel();
 
-  //lat();
+  //lat(vehicle);
   //lon();
-  //outputPosition();
-  getHealth();
+  outputPosition(vehicle);
+  //getHealth();
 }
