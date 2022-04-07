@@ -1,4 +1,3 @@
-#include "vehicleSetUp.hpp"
 #include "batteryLevel.hpp"
 #include "position.hpp"
 

@@ -10,9 +10,9 @@ LINKS=-ldjiosdk-core -lpthread
 # Uncomment to add debugging symbols
 #DEBUG=-g
 
-HEADERS = batteryLevel.hpp vehicleSetUp.hpp position.hpp
+HEADERS = batteryLevel.hpp position.hpp
 
-OBJECTS = main.o dji_linux_environment.o dji_linux_helpers.o batteryLevel.o vehicleSetUp.o position.o
+OBJECTS = main.o dji_linux_environment.o dji_linux_helpers.o batteryLevel.o position.o
 
 EXECUTABLE = mainProgram
 
