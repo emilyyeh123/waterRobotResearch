@@ -1,5 +1,5 @@
 #include "position.hpp"
-
+/*
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -13,13 +13,11 @@ using namespace std;
 #include "flight_control_sample.hpp"
 using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
-
+*/
 double lat(Vehicle *vehicle){
   cout << "\nRETRIEVING LATITUDE\n";
   DJI::OSDK::Telemetry::GlobalPosition currentBroadcastGP;
   currentBroadcastGP = vehicle -> broadcast -> getGlobalPosition();
-  //DJI::OSDK::Telemetry::PositionData currentPos;
-  //currentPos = vehicle -> broadcast -> getRelativePosition();
 
   cout << "Latitude is: " << currentBroadcastGP.latitude << endl;
   return currentBroadcastGP.latitude;
@@ -37,7 +35,6 @@ double lon(Vehicle *vehicle){
 int getHealth(Vehicle *vehicle){
   cout << "\nRETRIEVING SIGNAL STRENGTH\n";
   DJI::OSDK::Telemetry::GlobalPosition healthSignal;
-  //healthSignal = vehicle -> broadcast -> getGlobalPosition();
 
   cout << "Signal Strength (scale from 0-5, >3 is strong): " << int(healthSignal.health) << endl;
   return int(healthSignal.health);
