@@ -23,9 +23,9 @@ int batteryLevel(Vehicle *vehicle){
 
 void outputBatteryLevel(Vehicle* vehicle){
   ofstream myfile;
-  myfile.open("output.txt");
+  myfile.open("outputFiles/batteryOutput.txt");
   int battLev = batteryLevel(vehicle);
   myfile << "Battery Percentage: " << battLev << endl;
   myfile.close();
-  cout << "Battery Level printed to output.txt" << endl;
+  cout << "Battery Level sent to outputFiles/batteryOutput.txt" << endl;
 }

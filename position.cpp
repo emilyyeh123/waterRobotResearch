@@ -42,12 +42,12 @@ int getHealth(Vehicle *vehicle){
 
 void outputPosition(Vehicle *vehicle){
   ofstream myfile;
-  myfile.open("output.txt");
+  myfile.open("outputFiles/positionOutput.txt");
   double latitude = lat(vehicle);
   double longitude = lon(vehicle);
   myfile << "Latitude is: " << latitude << endl << "Longitude is: " << longitude << endl;
   myfile.close();
-  cout << "Position coordinates printed in output.txt\n";
+  cout << "Position coordinates printed in outputFiles/positionOutput.txt\n";
 }
 
 
