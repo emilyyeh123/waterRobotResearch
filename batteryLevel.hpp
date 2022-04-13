@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 // DJI OSDK includes
@@ -13,5 +14,6 @@ using namespace DJI::OSDK;
 using namespace DJI::OSDK::Telemetry;
 
 int batteryLevel(Vehicle *vehicle);
+void outputBatteryLevel(Vehicle *vehicle);
 
 #endif

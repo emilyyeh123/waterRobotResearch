@@ -20,3 +20,12 @@ int batteryLevel(Vehicle *vehicle){
   cout << "BATTERY PERCENTAGE: " << static_cast<int>(data.percentage) << "% \n";
   return static_cast<int>(data.percentage);
 }
+
+void outputBatteryLevel(Vehicle* vehicle){
+  ofstream myfile;
+  myfile.open("output.txt");
+  int battLev = batteryLevel(vehicle);
+  myfile << "Battery Percentage: " << battLev << endl;
+  myfile.close();
+  cout << "Battery Level printed to output.txt" << endl;
+}
