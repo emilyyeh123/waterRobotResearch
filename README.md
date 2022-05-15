@@ -14,11 +14,21 @@ Files I wrote:
 - [batteryLevel.hpp](batteryLevel.hpp)
 - [batteryLevel.cpp](batteryLevel.cpp)
   - `int batteryLevel(Vehicle *vehicle)`
-    - output: `BATTERY PERCENTAGE: x%`
+    - output: `BATTERY PERCENTAGE: X%`
   - `void outputBatteryLevel(Vehicle *vehicle)`
-    - outputs battery level to file
+    - outputs battery level to [batteryOutput.txt](outputFiles/batteryOutput.txt)
 - [position.hpp](position.hpp)
 - [position.cpp](position.cpp)
+  - must include `flight_control_sample.hpp`
+  - `double lat(Vehicle *vehicle)`
+    - output: `latitude is: X`
+  - `double lon(Vehicle *vehicle)`
+    - output: `longitude is: X`
+  - `int getHealth(Vehicle *vehicle)`
+    - Return gps signal strength on a scale of 1-5. Indoors is likely to be low (1 or 2).
+    - output: `Signal Strength (scale from 0-5, >3 is strong): X`
+  - `void outputPosition(Vehicle *vehicle)`
+    - output to file [positionOutput.txt](outputFiles/positionOutput.txt) `Latitude is: X \n Longitude is: Y`
 
 During communication, Python code will read the output files in [outputFiles](outputFiles) to receive drone updates.
 
@@ -45,6 +55,9 @@ Xbee PRO S1 and S2 are **not compatible** with Xbee PRO S3. [Xbee Compatibility 
 Download [XCTU (Windows) software](https://hub.digi.com/support/products/xctu/?path=/support/asset/drivers-installer-for-windows-xp-vista-7-and-8/) from the DIGI Xbee site to be able to get xbees on the same network. CH, DL, DH should be the same on all devices, but each one should have a unique ID associated with them. There should be 5 xbee PRO S1's in communication with each other with blue painter's tape labeling each one's properties. When I tried working with the xbee PRO S2's, I ran into firmware issues where I could not use them without having to download firmware on them. Additionally, there should be two xbee PRO S3B's in communication with each other.
 
 To better understand how to use XCTU software, refer to [Communication between XBee modules](https://iot4beginners.com/communication-between-xbee-modules/). Communication can be tested using the monitor-looking symbol on the top right and opening the ports. Separate windows must be opened for both devices to test at the same time on the same device.
+
+## Future Plans
+May want to test xbees with working ground robots from Dr. Basha's robotics class. Using the pre-programmed microcontrollers, pull the python files from [groundRobotControl](groundRobotControl) onto a pi and follow the instructions from the pdf or comments directly in the code.
 
 ## Reference Material
 - [DJI Matrice 100](https://www.dji.com/matrice100)
