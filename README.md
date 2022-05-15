@@ -1,5 +1,5 @@
 # Water Robot Research - Communication Between Devices
-This repository contains working code for communication between the raspberry Pi and the UAV.
+This repository contains working code for communication between the raspberry Pi and the UAV. This repository is currently on the drone pi. An SSH keygen was created from my (Emily's) github account to be able to push and pull without having to input a password every time. Since the commit on April 26, I have added documentation files and clean-up edits that have not been pulled on the Pi.
 
 The drone's raspberry pi is currently working on very old versions of software because the DJI Matrice 100 Drone code has not been and will no longer be updating (this is since about 2019). Because of this, it's also working on old versions of Python. Anyone who works on this project next should look into saving the current image of the pi somewhere and attempting to reset the pi to be able to use the latest versions of software. If this does not work, document it somewhere and revert to the saved image.
 
