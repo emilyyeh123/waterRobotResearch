@@ -63,5 +63,5 @@ May want to test xbees with working ground robots from Dr. Basha's robotics clas
 - [DJI Matrice 100](https://www.dji.com/matrice100)
 - [DJI OSDK Developer Documentation](https://developer.dji.com/onboard-sdk/documentation/introduction/homepage.html)
 - [Bathymetry Research Repository (2019)](https://github.com/eabasha/bathymetryPython) (bathymetry research project, helpful for drone code)
-- [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) (Jason's hive algorithm code and additional extra code for communication)
+- [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) (Jason's hive algorithm code and helpful code for communication protocols)
 - [Trash Detection Model](https://github.com/Emhernandez808/trash-detection-model/blob/main/classify.py) (Ethan's TensorFlow Trash Detection Model)
