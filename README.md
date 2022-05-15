@@ -57,13 +57,11 @@ Download [XCTU (Windows) software](https://hub.digi.com/support/products/xctu/?p
 To better understand how to use XCTU software, refer to [Communication between XBee modules](https://iot4beginners.com/communication-between-xbee-modules/). Communication can be tested using the monitor-looking symbol on the top right and opening the ports. Separate windows must be opened for both devices to test at the same time on the same device.
 
 ## Future Plans
-May want to test xbees with working ground robots from Dr. Basha's robotics class. Using the pre-programmed microcontrollers, pull the python files from [groundRobotControl](groundRobotControl) onto a pi and follow the instructions from the pdf or comments directly in the code.
+May want to test xbees with working ground robots from Dr. Basha's robotics class. Using the pre-programmed microcontrollers, pull the python files from [groundRobotControl](groundRobotControl) onto a pi and follow the instructions from the pdf or comments that are directly in the code.
 
 ## Reference Material
 - [DJI Matrice 100](https://www.dji.com/matrice100)
 - [DJI OSDK Developer Documentation](https://developer.dji.com/onboard-sdk/documentation/introduction/homepage.html)
-- [Bathymetry Research Repository (2019)](https://github.com/eabasha/bathymetryPython)
-
-## Additional References
-- [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees)
-- [Trash Detection Model](https://github.com/Emhernandez808/trash-detection-model/blob/main/classify.py)
+- [Bathymetry Research Repository (2019)](https://github.com/eabasha/bathymetryPython) (bathymetry research project, helpful for drone code)
+- [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) (Jason's hive algorithm code and additional extra code for communication)
+- [Trash Detection Model](https://github.com/Emhernandez808/trash-detection-model/blob/main/classify.py) (Ethan's TensorFlow Trash Detection Model)
