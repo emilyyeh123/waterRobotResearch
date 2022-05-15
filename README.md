@@ -1,19 +1,30 @@
 # Water Robot Research - Communication Between Devices
 This repository contains working code for communication between the raspberry Pi and the UAV.
 
+The drone's raspberry pi is currently working on very old versions of software because the DJI Matrice 100 Drone code has not been and will no longer be updating (this is since about 2019). Because of this, it's also working on old versions of Python. Anyone who works on this project next should look into saving the current image of the pi somewhere and attempting to reset the pi to be able to use the latest versions of software. If this does not work, document it somewhere and revert to the saved image.
+
 ## DJI CPP
-For [main](main.cpp) to compile, must include `dji_linux_environment` and `dji_linux_helpers` in this directory. 
+For [main.cpp](main.cpp) to compile, must include `dji_linux_environment` and `dji_linux_helpers` in this directory. 
 [UserConfig.txt](UserConfig.txt) contains configuration instructions for the Pi to connect to the drone.
 
 Files I wrote:
 - [main.cpp](main.cpp)
+  - Vehicle gets created here and passed through batteryLevel and position functions
   - runs batteryLevel and position code based on unix signalling commands (must run in conjunction with [send_unix_signal.py](send_unix_signal.py))
 - [batteryLevel.hpp](batteryLevel.hpp)
 - [batteryLevel.cpp](batteryLevel.cpp)
+  - `int batteryLevel(Vehicle *vehicle)`
+    - output: `BATTERY PERCENTAGE: x%`
+  - `void outputBatteryLevel(Vehicle *vehicle)`
+    - outputs battery level to file
 - [position.hpp](position.hpp)
 - [position.cpp](position.cpp)
 
+During communication, Python code will read the output files in [outputFiles](outputFiles) to receive drone updates.
+
 ## Unix Signalling
+Allows C++ drone code to run from pi Python code.
+
 All files used for unix signalling:
 - [cpp_pid](cpp_pid) (updates every time [send_unix_signal.py](send_unix_signal.py) runs)
 - [receive_unix_signal.hpp](receive_unix_signal.hpp)
@@ -21,11 +32,19 @@ All files used for unix signalling:
 - [send_unix_signal.hpp](send_unix_signal.hpp)
 - [send_unix_signal.cpp](send_unix_signal.cpp)
 - [send_unix_signal.py](send_unix_signal.py) - run this to send commands from the pi
-- [echo_unix_signal.py](echo_unix_signal.py)
+- [echo_unix_signal.py](echo_unix_signal.py) - run this to receive commands
 
-## Next Steps
-- Integrate xbee Communication from Jason's [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees)
-- Test Ethan's [Trash Detection Model](https://github.com/Emhernandez808/trash-detection-model/blob/main/classify.py) on TensorFlow
+## Xbee Communication (incomplete, but started)
+Integrated xbee communication (UAVAgent.py, UAVController.py) from Jason's [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees)
+
+The repository's [UAVAgent.py](UAVAgent.py) and [UAVController.py](UAVController.py) are both initial pushes of mostly unedited code. The drone's raspberry pi has edited, but unpushed and untested code for communication. It has some errors that I never got around to testing. 
+
+### Xbees
+Xbee PRO S1 and S2 are **not compatible** with Xbee PRO S3. [Xbee Compatibility Guide](https://www.sparkfun.com/pages/xbee_guide)
+
+Download [XCTU (Windows) software](https://hub.digi.com/support/products/xctu/?path=/support/asset/drivers-installer-for-windows-xp-vista-7-and-8/) from the DIGI Xbee site to be able to get xbees on the same network. CH, DL, DH should be the same on all devices, but each one should have a unique ID associated with them. There should be 5 xbee PRO S1's in communication with each other with blue painter's tape labeling each one's properties. When I tried working with the xbee PRO S2's, I ran into firmware issues where I could not use them without having to download firmware on them. Additionally, there should be two xbee PRO S3B's in communication with each other.
+
+To better understand how to use XCTU software, refer to [Communication between XBee modules](https://iot4beginners.com/communication-between-xbee-modules/). Communication can be tested using the monitor-looking symbol on the top right and opening the ports. Separate windows must be opened for both devices to test at the same time on the same device.
 
 ## Reference Material
 - [DJI Matrice 100](https://www.dji.com/matrice100)
