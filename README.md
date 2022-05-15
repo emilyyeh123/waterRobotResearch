@@ -47,7 +47,7 @@ All files used for unix signalling:
 ## Xbee Communication (incomplete, but started)
 Integrated xbee communication (UAVAgent.py, UAVController.py) from Jason's [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees)
 
-The repository's [UAVAgent.py](UAVAgent.py) and [UAVController.py](UAVController.py) are both initial pushes of mostly unedited code. The drone's raspberry pi has edited, but unpushed and untested code for communication. It has some errors that I never got around to testing. 
+The repository's [UAVAgent.py](UAVAgent.py) and [UAVController.py](UAVController.py) are both initial pushes of mostly unedited code. The drone's raspberry pi has edited, but unpushed and untested code for communication. It has some errors that I never got around to testing. In it, Jason and I were attempting to integrate code to read the output files.
 
 ### Xbees
 Xbee PRO S1 and S2 are **not compatible** with Xbee PRO S3. [Xbee Compatibility Guide](https://www.sparkfun.com/pages/xbee_guide)
