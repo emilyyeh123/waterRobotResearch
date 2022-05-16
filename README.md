@@ -10,7 +10,7 @@ For [main.cpp](main.cpp) to compile, must include `dji_linux_environment` and `d
 Files I wrote:
 - [main.cpp](main.cpp)
   - Vehicle gets created here and passed through batteryLevel and position functions
-  - runs batteryLevel and position code based on unix signalling commands (must run in conjunction with [send_unix_signal.py](send_unix_signal.py))
+  - writes the battery level or position to output files based on commands received through unix signaling
 - [batteryLevel.hpp](batteryLevel.hpp)
 - [batteryLevel.cpp](batteryLevel.cpp)
   - `int batteryLevel(Vehicle *vehicle)`
@@ -33,7 +33,7 @@ Files I wrote:
 During communication, Python code will read the output files in [outputFiles](outputFiles) to receive drone updates.
 
 ## Unix Signalling
-Allows interfacing between Python and C++. The [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) provides the groundwork for the unix signalling in the `unix_signal_demo` directory. It has been integrated here to work with the drone's programming.
+Allows interfacing between Python and C++. The [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) provides the groundwork for the unix signalling in the [unix_signal_demo](https://github.com/jtotran/multi-agent-bees/tree/main/unix_signal_demo) directory. It has been integrated here to work with the drone's programming.
 
 
 All files used for unix signalling:
@@ -46,9 +46,7 @@ All files used for unix signalling:
 - [echo_unix_signal.py](echo_unix_signal.py) - run this to receive commands
 
 ## Xbee Communication (incomplete, but started)
-Integrated xbee communication (UAVAgent.py, UAVController.py) from Jason's [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees)
-
-The repository's [UAVAgent.py](UAVAgent.py) and [UAVController.py](UAVController.py) are both initial pushes of mostly unedited code. The drone's raspberry pi has edited, but unpushed and untested code for communication. It has some errors that I never got around to testing. In it, Jason and I were attempting to integrate code to read the output files.
+The [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) provides the groundwork for the Xbee communication protocols in the [xbee_communication](https://github.com/jtotran/multi-agent-bees/tree/main/xbee_communication) directory. An attempt was made to integrate here with drone code, but there was not enough time to test it. The repository's [UAVAgent.py](UAVAgent.py) and [UAVController.py](UAVController.py) are both initial pushes of mostly unedited code. The drone's raspberry pi has edited, but unpushed and untested code for communication. It has some errors, but the idea is that, based on specific commands, it is expected to read the output files to get drone information.
 
 ### Xbees
 Xbee PRO S1 and S2 are **not compatible** with Xbee PRO S3. [Xbee Compatibility Guide](https://www.sparkfun.com/pages/xbee_guide)
