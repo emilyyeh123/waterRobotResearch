@@ -33,7 +33,8 @@ Files I wrote:
 During communication, Python code will read the output files in [outputFiles](outputFiles) to receive drone updates.
 
 ## Unix Signalling
-Allows C++ drone code to run from pi Python code.
+Allows interfacing between Python and C++. The [Multi Agent Bees Repository](https://github.com/jtotran/multi-agent-bees) provides the groundwork for the unix signalling in the `unix_signal_demo` directory. It has been integrated here to work with the drone's programming.
+
 
 All files used for unix signalling:
 - [cpp_pid](cpp_pid) (updates every time [send_unix_signal.py](send_unix_signal.py) runs)
