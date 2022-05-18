@@ -3,7 +3,7 @@
 
 [GPS datasheet](BS-71U_GPS_Receiver_Datasheet.pdf)
 
-[gps.py](gps.py) prints a position (lat, long) or signal strength (range: 0-99) based on what it's reading. Other instructions can be added based on the NMEA 0183 protocol.
+Connect the GPS to a raspberry pi and run [gps.py](gps.py). It should endlessly print position (lat, long) or signal strength (range: 0-99) based on what it's reading. Other instructions can be added based on the NMEA 0183 protocol. Cancel the program with ctrl-c or ctrl-\.
 
 ## Resources
 - [What Exactly Is GPS NMEA Data?](https://www.gpsworld.com/what-exactly-is-gps-nmea-data/)
