@@ -56,7 +56,7 @@ Download [XCTU (Windows) software](https://hub.digi.com/support/products/xctu/?p
 To better understand how to use XCTU software, refer to [Communication between XBee modules](https://iot4beginners.com/communication-between-xbee-modules/). Communication can be tested using the monitor-looking symbol on the top right and opening the ports. Separate windows must be opened for both devices to test at the same time on the same device.
 
 ## Future Plans
-May want to test xbees with working ground robots from Dr. Basha's robotics class. Using the pre-programmed microcontrollers, pull the python files from [groundRobotControl](groundRobotControl) onto a pi and follow the instructions from the pdf or comments that are directly in the code. Would also need to add GPS modules to ground robots.
+May want to test xbees with working ground robots from Dr. Basha's robotics class. Using the pre-programmed microcontrollers, pull the python files from [groundRobotControl](groundRobotControl) onto a pi and follow the instructions from the pdf or comments that are directly in the code. Would also need to add GPS modules to ground robots. Basic code and information for a GPS module can be found in [gpsModule](gpsModule).
 
 ## Reference Material
 - [DJI Matrice 100](https://www.dji.com/matrice100)
